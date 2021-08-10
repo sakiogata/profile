@@ -1,0 +1,664 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+  
+html {
+    font-size: 62.5%;
+}
+  
+@media screen and (min-width: 0px) and (max-width: 5000px) {
+    html {
+      font-size: 0.625vw;
+    }
+}
+/*ここからヘッダー*/
+
+header {
+    width: 100vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+    position: absolute;
+    top: 0%;
+}
+
+a.logo {
+    cursor: default;
+}
+  
+.logo img {
+    width: 70%;
+    cursor: pointer;
+}
+  
+.navbar a {
+    font-size: 2.3rem;
+    text-decoration: none;
+    padding: 0 20px;
+    color: black;
+}
+
+.hover-border {
+    position: relative;
+}
+
+.hover-border::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(41, 41, 41);
+    bottom: -30%;
+    left: 6%;
+    border-radius: 10px;
+    transition: all 500ms ease;
+    margin-left: 10px;
+}
+
+.hover-border:hover::after{
+    width: 72%;
+}
+
+.navbar ul li{
+    display: inline-block;
+}
+
+.gnav {
+    text-align: center;
+}
+
+.phone-logo {
+    display: none;
+}
+    
+/*ここからハンバーガー*/
+
+/*３本線を押すと出てくるメニュー*/
+
+@media(max-width:1024px) {
+    .body {
+        position: relative;
+    }
+    ul.gnav {
+        position: absolute;
+        right: -500px;
+        height: 60vh;
+        top: 100px;
+        transition: .5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+    }
+
+    ul.gnav.active {
+        position: absolute;
+        right: 0px;
+        width: 100vw;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 110px;
+        top: 0;
+    }
+
+
+    .navbar ul li{
+        position: unset;
+    }
+
+    .pc ul a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(0, 0, 0);
+    }
+
+    .pc ul  {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        padding: 0 40px 0 40px;
+        text-align: left;
+    }
+
+    .pc ul a {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    .navbar a {
+        line-height: 80px;
+        padding: 0px;
+    }
+
+    li.header-logo a img{
+        display: none;
+    }
+
+    .phone-logo {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 2%;
+        width: 70%;
+    }
+}
+
+
+/*ここからハンバーガーの３本線*/
+
+div.toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    z-index: 15;
+    display: none;
+}
+
+@media(max-width:1024px) {
+    div.toggle {
+        display: block;
+    }
+}
+
+.toggle span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    border-bottom: solid 3px rgb(0, 0, 0);
+    transition: .3s ease-in-out;
+    left: 6px;
+    z-index: 15;
+}
+
+.toggle span:nth-child(1){
+    top: 9px;
+}
+
+.toggle span:nth-child(2){
+    top: 18px;
+}
+
+.toggle span:nth-child(3){
+    top: 27px;
+}
+
+.toggle.active span:nth-child(1){
+    top: 18px;
+    left: 6px;
+    transform: rotate(-45deg);
+}
+
+.toggle.active span:nth-child(2),
+.toggle.active span:nth-child(3){
+    top: 18px;
+    transform: rotate(45deg);
+}
+
+
+@media(max-width:1024px) {
+    header {
+        position: fixed;
+    }
+    
+    .logo img {
+        width: 35%;
+    }
+
+    div.toggle {
+        top: 20px;
+        right: 40px;
+        width: 42px;
+    }
+    
+    .toggle span {
+        width: 55px;
+        border-bottom: solid 5px rgb(0, 0, 0);
+        z-index: 15;
+    }
+
+    .toggle span:nth-child(1){
+        top: 12px;
+    }
+    
+    .toggle span:nth-child(2){
+        top: 28px;
+    }
+    
+    .toggle span:nth-child(3){
+        top: 44px;
+    }
+}
+
+@media(max-width:768px) {
+    ul.gnav.active {
+        height: 52vh;
+    }
+    .pc ul a {
+        font-size: 4rem;
+    }
+    ul.drop-downs li a{
+        padding: 0 0 0 71px;
+    }
+}
+
+@media(max-width:428px) {
+    .logo img {
+        width: 55%;
+    }
+    ul.gnav {
+        top: 75px;
+    }
+    .navbar a {
+        line-height: 50px;
+    }
+    ul.gnav.active {
+        height: 48vh;
+        padding-top: 90px;
+    }
+    .pc ul a {
+        font-size: 6rem;
+    }
+    ul.gnav {
+        height: 80vh;
+    }
+
+    div.toggle {
+        top: 11px;
+        right: 7px;
+        width: 45px;
+    }
+    
+    .toggle span {
+        width: 32px;
+        border-bottom: solid 3px rgb(0, 0, 0);
+    }
+
+    .toggle span:nth-child(1){
+        top: 12px;
+    }
+    
+    .toggle span:nth-child(2){
+        top: 21px;
+    }
+    
+    .toggle span:nth-child(3){
+        top: 30px;
+    }
+
+}
+
+@media(max-width:320px) {
+    .logo img {
+        width: 57%;
+    }
+    ul.gnav {
+        top: 65px;
+    }
+    .navbar a {
+        line-height: 42px;
+    }
+    ul.gnav.active {
+        height: 56vh;
+        padding-top: 90px;
+    }
+    div.toggle {
+        top: 10px;
+    }
+}
+
+/*ここまでヘッダー*/
+
+/*ここからトップ*/
+.top {
+    background-image: url(img/top-bg.png);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.top h1 {
+    position: absolute;
+    top:40%;
+    left: 4%;
+    font-size: 9rem;
+    color: white;
+    font-family: 'Castoro', serif;
+    font-weight: lighter;
+    line-height: 130px;
+    animation-duration: 1.8s;
+    animation-name: h1;
+}
+
+@keyframes h1 {
+    from{
+        transform: translatex(-800px);
+    }
+    to{
+        transform: translatex(0px);
+    }
+}
+
+@media (max-width:1024px) {
+    .top h1 {
+        font-size: 12rem;
+    }    
+}
+
+@media (max-width:768px) {
+    .top h1 {
+        font-size: 14rem;
+    }    
+}
+
+@media (max-width:428px) {
+    .top h1 {
+        font-size: 16.5rem;
+        line-height: 80px;
+    }    
+}
+
+@media (max-width:320px) {
+    .top h1 {
+        font-size: 18rem;
+        line-height: 60px;
+    }    
+}
+
+/*ここからlow1*/
+.low1 h2 {
+    padding-top: 6%;
+    font-size: 4.5rem;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.low1 .works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.works-item {
+    padding: 6% 1% 0 1%;
+    text-align: center;
+}
+
+.low1 img {
+    width: 590px;
+    box-shadow: 8px 8px 10px rgb(219, 219, 219);
+    transition: .3s;
+}
+
+.low1 img:hover {
+    transform: translateY(-10px);
+}
+
+.works {
+    padding-bottom: 13%;
+}
+
+.works h3 {
+    padding-top: 4%;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.works p {
+    font-size: 1.5rem;
+}
+
+@media (max-width:1024px) {
+    .low1 img {
+        width: 430px;
+    }  
+    .works h3 {
+        font-size: 4rem;
+    }
+    .works p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:768px) {
+    .low1 h2 {
+        font-size: 6.5rem;
+    }    
+    .works {
+        margin: auto;
+    }
+    .works-item {
+        padding: 6% 1% 7% 1%;
+        text-align: center;
+    }    
+    .low1 .works {
+        justify-content: center;
+    }
+    .low1 img {
+        width: 520px;
+    }  
+    .works h3 {
+        font-size: 5rem;
+    }
+    .works p {
+        font-size: 3rem;
+    } 
+}
+
+@media (max-width:428px) {
+    .low1 h2 {
+        font-size: 9rem;
+    }    
+    .low1 img {
+        width: 380px;
+    }  
+    .works h3 {
+        font-size: 7rem;
+    }
+    .works p {
+        font-size: 5rem;
+    } 
+}
+
+@media (max-width:320px) {
+    .low1 h2 {
+        font-size: 11rem;
+    }    
+    .works-item {
+        padding: 6% 1% 15% 1%;
+    }    
+    .low1 img {
+        width: 295px;
+    }  
+    .works h3 {
+        font-size: 9rem;
+    }
+    .works p {
+        font-size: 7rem;
+    } 
+}
+
+/* 画面外にいる状態 */
+.fadein {
+	opacity : 0.1;
+	transform : translate(0, 100px);
+	transition : all 1.5s;
+}
+
+/* 画面内に入った状態 */
+.fadein.scrollin {
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+
+/*ここからフッター*/
+footer {
+    font-size: 0;
+}
+
+.footer-top-img {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+    object-position: 0 26%;
+}
+
+.footer-low {
+    background-color: rgb(0, 0, 0);
+    height: 41vh;
+}
+
+.footer-first-low {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-first-low img {
+    width: 16%;
+    padding: 0 0 0 4%;
+}
+
+.far-a {
+    padding: 2% 5% 0 0;
+}
+
+a .fa-arrow-alt-circle-up {
+    color: white;
+    font-size: 6rem;
+    transition: 0.5s;
+}
+
+a .fa-arrow-alt-circle-up:hover {
+    transform: translateY(-6px);
+}
+
+.footer-second-low {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.footer-second-low p {
+    font-size: 2.2rem;
+    padding: 2% 0 2% 0;
+}
+
+.fa-envelope {
+    color: white;
+    font-size: 3.8rem;
+    position: absolute;
+    left: 22%;
+    top: 73%;
+}
+
+.footer-second-low a {
+    text-decoration: none;
+    color: white;
+    font-size: 2.1rem;
+    border: 1px solid white;
+    padding: 1% 25%;
+    transition: 0.5s;
+}
+
+.footer-second-low a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+}
+
+.footer-second-low a:hover .fa-envelope {
+    color: rgb(0, 0, 0);
+}
+
+.footer-third-low  {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-third-low p {
+    color: white;
+    font-size: 1.5rem;
+    padding: 6% 0 0 4%;
+}
+
+.sns {
+    display: flex;
+    margin: 3% 8% 0 0;
+}
+
+.sns a {
+    color: white;
+    font-size: 6rem;
+    margin-left: 10%;
+    transition: 0.5s;
+}
+
+.sns a:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width:1024px) {
+    .footer-low {
+        height: 17vh;
+    }
+}
+
+@media (max-width:428px) {
+    .footer-low {
+        height: 100%;
+    }
+    .footer-top-img {
+        height: 11vh;
+    }
+    .footer-first-low img {
+        width: 41%;
+    }
+    .far-a {
+        padding: 4% 5% 0 0;
+    }    
+    a .fa-arrow-alt-circle-up {
+        font-size: 22rem;
+    }
+    .footer-second-low p {
+        font-size: 6rem;
+        width: 80%;
+        margin: auto;
+        padding-top: 16%;
+        margin-bottom: 5%;
+    }
+    .footer-second-low a {
+        font-size: 7rem;
+        padding: 4% 25%;
+    }
+    .fa-envelope {
+        font-size: 16rem;
+        left: 18%;
+        top: 79.5%;
+    }
+    .footer-third-low p {
+        font-size: 6rem;
+        padding: 30% 0 0 4%;
+    }
+    .sns a {
+        font-size: 20rem;
+    }
+    .sns {
+        margin: 21% 13% 0 0;
+    }
+}
+@media (max-width:320px) {
+    .footer-top-img {
+        height: 16vh;
+    }
+}
+
+
+

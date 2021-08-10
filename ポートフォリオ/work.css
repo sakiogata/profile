@@ -1,0 +1,662 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+  
+html {
+    font-size: 62.5%;
+}
+  
+@media screen and (min-width: 0px) and (max-width: 5000px) {
+    html {
+      font-size: 0.625vw;
+    }
+}
+/*ここからヘッダー*/
+
+header {
+    width: 100vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+    position: absolute;
+    top: 0%;
+}
+
+a.logo {
+    cursor: default;
+}
+  
+.logo img {
+    width: 70%;
+    cursor: pointer;
+}
+  
+.navbar a {
+    font-size: 2.3rem;
+    text-decoration: none;
+    padding: 0 20px;
+    color: black;
+}
+
+.hover-border {
+    position: relative;
+}
+
+.hover-border::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(41, 41, 41);
+    bottom: -30%;
+    left: 6%;
+    border-radius: 10px;
+    transition: all 500ms ease;
+    margin-left: 10px;
+}
+
+.hover-border:hover::after{
+    width: 72%;
+}
+
+.navbar ul li{
+    display: inline-block;
+}
+
+.gnav {
+    text-align: center;
+}
+
+.phone-logo {
+    display: none;
+}
+    
+/*ここからハンバーガー*/
+
+/*３本線を押すと出てくるメニュー*/
+
+@media(max-width:1024px) {
+    .body {
+        position: relative;
+    }
+    ul.gnav {
+        position: absolute;
+        right: -500px;
+        height: 60vh;
+        top: 100px;
+        transition: .5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+    }
+
+    ul.gnav.active {
+        position: absolute;
+        right: 0px;
+        width: 100vw;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 110px;
+        top: 0;
+    }
+
+
+    .navbar ul li{
+        position: unset;
+    }
+
+    .pc ul a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(0, 0, 0);
+    }
+
+    .pc ul  {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        padding: 0 40px 0 40px;
+        text-align: left;
+    }
+
+    .pc ul a {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    .navbar a {
+        line-height: 80px;
+        padding: 0px;
+    }
+
+    li.header-logo a img{
+        display: none;
+    }
+
+    .phone-logo {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 2%;
+        width: 70%;
+    }
+}
+
+
+/*ここからハンバーガーの３本線*/
+
+div.toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    z-index: 15;
+    display: none;
+}
+
+@media(max-width:1024px) {
+    div.toggle {
+        display: block;
+    }
+}
+
+.toggle span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    border-bottom: solid 3px rgb(0, 0, 0);
+    transition: .3s ease-in-out;
+    left: 6px;
+    z-index: 15;
+}
+
+.toggle span:nth-child(1){
+    top: 9px;
+}
+
+.toggle span:nth-child(2){
+    top: 18px;
+}
+
+.toggle span:nth-child(3){
+    top: 27px;
+}
+
+.toggle.active span:nth-child(1){
+    top: 18px;
+    left: 6px;
+    transform: rotate(-45deg);
+}
+
+.toggle.active span:nth-child(2),
+.toggle.active span:nth-child(3){
+    top: 18px;
+    transform: rotate(45deg);
+}
+
+
+@media(max-width:1024px) {
+    header {
+        position: fixed;
+    }
+    
+    .logo img {
+        width: 35%;
+    }
+
+    div.toggle {
+        top: 20px;
+        right: 40px;
+        width: 42px;
+    }
+    
+    .toggle span {
+        width: 55px;
+        border-bottom: solid 5px rgb(0, 0, 0);
+        z-index: 15;
+    }
+
+    .toggle span:nth-child(1){
+        top: 12px;
+    }
+    
+    .toggle span:nth-child(2){
+        top: 28px;
+    }
+    
+    .toggle span:nth-child(3){
+        top: 44px;
+    }
+}
+
+@media(max-width:768px) {
+    ul.gnav.active {
+        height: 52vh;
+    }
+    .pc ul a {
+        font-size: 4rem;
+    }
+    ul.drop-downs li a{
+        padding: 0 0 0 71px;
+    }
+}
+
+@media(max-width:428px) {
+    .logo img {
+        width: 55%;
+    }
+    ul.gnav {
+        top: 75px;
+    }
+    .navbar a {
+        line-height: 50px;
+    }
+    ul.gnav.active {
+        height: 48vh;
+        padding-top: 90px;
+    }
+    .pc ul a {
+        font-size: 6rem;
+    }
+    ul.gnav {
+        height: 80vh;
+    }
+
+    div.toggle {
+        top: 11px;
+        right: 7px;
+        width: 45px;
+    }
+    
+    .toggle span {
+        width: 32px;
+        border-bottom: solid 3px rgb(0, 0, 0);
+    }
+
+    .toggle span:nth-child(1){
+        top: 12px;
+    }
+    
+    .toggle span:nth-child(2){
+        top: 21px;
+    }
+    
+    .toggle span:nth-child(3){
+        top: 30px;
+    }
+
+}
+
+@media(max-width:320px) {
+    .logo img {
+        width: 57%;
+    }
+    ul.gnav {
+        top: 65px;
+    }
+    .navbar a {
+        line-height: 42px;
+    }
+    ul.gnav.active {
+        height: 56vh;
+        padding-top: 90px;
+    }
+    div.toggle {
+        top: 10px;
+    }
+}
+
+/*ここまでヘッダー*/
+
+/*ここからトップ*/
+.top img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.about h1 {
+    margin: 15% 0 0 0;
+    text-align: center;
+    font-size: 6rem;
+    font-family: 'Castoro', serif;
+    font-weight: lighter;
+}
+
+.items {
+    margin: auto;
+    width: 75%;
+}
+
+.item {
+    text-align: left;
+}
+
+.item h2 {
+    font-size: 4.2rem;
+    font-weight: lighter;
+    margin: 5% 0 0 0;
+}
+
+.item h3 {
+    font-size: 2rem;
+    font-weight: lighter;
+    margin: 0 0 1% 0;
+}
+
+.item img{
+    width: 100%;
+    box-shadow: 4px 4px 8px rgb(216, 216, 216);
+    transition: 0.2s;
+}
+
+.item h4 {
+    font-size: 3rem;
+    font-weight: lighter;
+    margin: 4.5% 0 1% 0;
+}
+
+.item p {
+    font-size: 1.7rem;
+    margin: 0 0 3% 0;
+    line-height: 28px;
+}
+
+.item .bottom-p {
+    margin-bottom: 18%;
+}
+
+@media (max-width:1024px) {
+    .about h1 {
+        margin: 18% 0 0 0;
+        font-size: 8rem;
+    }
+    .item h2 {
+        font-size: 4.5rem;
+    }
+
+    .item h3 {
+        font-size: 2.5rem;
+    }
+    
+    .item h4 {
+        font-size: 3.5rem;
+    }
+    
+    .item p {
+        font-size: 2rem;
+    }
+    
+}
+
+@media (max-width:768px) {
+    .about h1 {
+        margin: 20% 0 0 0;
+        font-size: 10rem;
+    }
+    .item h2 {
+        font-size: 5rem;
+    }
+    
+    .item h3 {
+        font-size: 3rem;
+    }
+    
+    .items {
+        width: 80%;
+    }
+    
+    .item h4 {
+        font-size: 4rem;
+    }
+    
+    .item p {
+        font-size: 2.8rem;
+    }
+    
+}
+
+@media (max-width:428px) {
+    .about h1 {
+        margin: 28% 0 0 0;
+        font-size: 18rem;
+    }
+    .item h2 {
+        font-size: 10rem;
+        margin: 15% 0 0 0;
+    }
+    
+    .item h3 {
+        font-size: 6rem;
+    }
+    
+    .items {
+        width: 90%;
+    }
+    
+    .item h4 {
+        font-size: 8rem;
+        margin: 12% 0 1% 0;
+    }
+    
+    .item p {
+        font-size: 5rem;
+        margin: 0 0 6% 0;
+    }
+    
+}
+
+@media (max-width:320px) {
+    .about h1 {
+        margin: 35% 0 0 0;
+        font-size: 18rem;
+    }
+    .item h2 {
+        font-size: 11rem;
+        margin: 15% 0 0 0;
+    }
+    
+    .item h3 {
+        font-size: 7rem;
+    }
+    
+    .items {
+        width: 90%;
+    }
+    
+    .item h4 {
+        font-size: 9rem;
+        margin: 12% 0 1% 0;
+    }
+    
+    .item p {
+        font-size: 5.5rem;
+        margin: 0 0 6% 0;
+    }
+    
+}
+
+
+/* 画面外にいる状態 */
+.fadein {
+	opacity : 0.1;
+	transform : translate(0, 100px);
+	transition : all 1.5s;
+}
+
+/* 画面内に入った状態 */
+.fadein.scrollin {
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+
+
+/*ここからフッター*/
+footer {
+    font-size: 0;
+}
+
+.footer-top-img {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+    object-position: 0 26%;
+}
+
+.footer-low {
+    background-color: rgb(0, 0, 0);
+    height: 41vh;
+}
+
+.footer-first-low {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-first-low img {
+    width: 16%;
+    padding: 0 0 0 4%;
+}
+
+.far-a {
+    padding: 2% 5% 0 0;
+}
+
+a .fa-arrow-alt-circle-up {
+    color: white;
+    font-size: 6rem;
+    transition: 0.5s;
+}
+
+a .fa-arrow-alt-circle-up:hover {
+    transform: translateY(-6px);
+}
+
+.footer-second-low {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.footer-second-low p {
+    font-size: 2.2rem;
+    padding: 2% 0 2% 0;
+}
+
+.fa-envelope {
+    color: white;
+    font-size: 3.8rem;
+    position: absolute;
+    left: 22%;
+    top: 73%;
+}
+
+.footer-second-low a {
+    text-decoration: none;
+    color: white;
+    font-size: 2.1rem;
+    border: 1px solid white;
+    padding: 1% 25%;
+    transition: 0.5s;
+}
+
+.footer-second-low a:hover {
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+}
+
+.footer-second-low a:hover .fa-envelope {
+    color: rgb(0, 0, 0);
+}
+
+.footer-third-low  {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-third-low p {
+    color: white;
+    font-size: 1.5rem;
+    padding: 6% 0 0 4%;
+}
+
+.sns {
+    display: flex;
+    margin: 3% 8% 0 0;
+}
+
+.sns a {
+    color: white;
+    font-size: 6rem;
+    margin-left: 10%;
+    transition: 0.5s;
+}
+
+.sns a:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width:1024px) {
+    .footer-low {
+        height: 17vh;
+    }
+}
+
+@media (max-width:428px) {
+    .footer-low {
+        height: 100%;
+    }
+    .footer-top-img {
+        height: 11vh;
+    }
+    .footer-first-low img {
+        width: 41%;
+    }
+    .far-a {
+        padding: 4% 5% 0 0;
+    }    
+    a .fa-arrow-alt-circle-up {
+        font-size: 22rem;
+    }
+    .footer-second-low p {
+        font-size: 6rem;
+        width: 80%;
+        margin: auto;
+        padding-top: 16%;
+        margin-bottom: 5%;
+    }
+    .footer-second-low a {
+        font-size: 7rem;
+        padding: 4% 25%;
+    }
+    .fa-envelope {
+        font-size: 16rem;
+        left: 18%;
+        top: 79.5%;
+    }
+    .footer-third-low p {
+        font-size: 6rem;
+        padding: 30% 0 0 4%;
+    }
+    .sns a {
+        font-size: 20rem;
+    }
+    .sns {
+        margin: 21% 13% 0 0;
+    }
+}
+@media (max-width:320px) {
+    .footer-top-img {
+        height: 16vh;
+    }
+}
+
+
+
