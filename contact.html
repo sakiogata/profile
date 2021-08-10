@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Saki Ogata website</title>
+        <link rel="stylesheet" href="contact.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="https://kit.fontawesome.com/707b7ed2fc.js" crossorigin="anonymous"></script>        
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <header id="home">
+                <div class="pc">
+                    <div class="phone-logo">
+                        <a class="logo" href="index.html"><img src="img/logo.png" alt="ロゴ画像"></a>
+                    </div>
+                    <div class="navbar">
+                        <ul class="gnav">
+                            <li><a class="hover-border" href="about.html">ABOUT</a></li>
+                            <li><a class="hover-border" href="work.html">WORK</a></li>
+                            <li class="header-logo">
+                                <a class="logo" href="index.html"><img src="img/logo.png" alt="ロゴ画像"></a>
+                            </li>            
+                            <li><a class="hover-border" href="skill.html">SKILL</a></li>
+                            <li><a class="hover-border-now" href="contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </nav>
+        <!---ハンバーガー-->
+            <div class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="top">
+                <img src="img/low-header.png" alt="top">
+            </div>
+            <div class="about">
+                <h1>CONTACT</h1>
+                <div class="contact-form">
+                    <div class="link mail">
+                        <p>MAIL</p>
+                        <a href="mailto:sakirei.0908@yahoo.ne.jp">sakirei.0908@yahoo.ne.jp</a>
+                    </div>
+                    <div class="link tel">
+                        <p>TEL&nbsp&nbsp</p>
+                        <a href="tel:+81-80-9124-2338">080-9124-2338&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                    </div>
+    
+                </div>    
+                <footer>
+                    <img  class="footer-top-img" src="img/footer-top-img.png" alt="footer-img">
+                    <div class="footer-low">
+                        <div class="footer-first-low">
+                            <img src="img/footer-logo.png" alt="logo">
+                            <a class="far-a" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
+                        </div>
+                        <div class="footer-second-low">
+                            <p>お仕事依頼、ご質問等あれば下記からお気軽にお問い合わせください。</p>
+                            <a href="contact.html"><i class="far fa-envelope"></i>CONTACT US</a>
+                        </div>
+                        <div class="footer-third-low">
+                            <p>&copy sakioata|2021</p>
+                            <div class="sns">
+                                <a href="https://twitter.com/webdesign_saki"><i class="fab fa-twitter-square"></i></a>
+                                <a href="https://github.com/sakiogata"><i class="fab fa-github-square"></i></a>
+                                <a href="https://www.instagram.com/webdesign.saki/"><i class="fab fa-instagram-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <script>
+                    $(function(){
+                        $('.toggle').click(function(){
+                            $(this).toggleClass('active');
+                            if ($(this).hasClass('active')) {
+                                $('.gnav').addClass('active');
+                            } else {
+                                $('.gnav').removeClass('active');
+                            }
+                        });
+                    });
+                    $(function(){
+                        $(window).scroll(function (){
+                            $('.fadein').each(function(){
+                                var elemPos = $(this).offset().top;
+                                var scroll = $(window).scrollTop();
+                                var windowHeight = $(window).height();
+                                if (scroll > elemPos - windowHeight + 200){
+                                    $(this).addClass('scrollin');
+                                }
+                            });
+                        });
+                    });
+                    $(function(){
+                        $('a[href^="#"]').click(function(){
+                            let speed = 500;
+                            let href= $(this).attr("href");
+                            let target = $(href == "#" || href == "" ? 'html' : href);
+                            let position = target.offset().top;
+                            $("html, body").animate({scrollTop:position}, speed, "swing");
+                            return false;
+                        });
+                    });
+                    </script>
+            </body>
+        </html>

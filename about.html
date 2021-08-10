@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Saki Ogata website</title>
+        <link rel="stylesheet" href="about.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="https://kit.fontawesome.com/707b7ed2fc.js" crossorigin="anonymous"></script>        
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <header id="home">
+                <div class="pc">
+                    <div class="phone-logo">
+                        <a class="logo" href="index.html"><img src="img/logo.png" alt="ロゴ画像"></a>
+                    </div>
+                    <div class="navbar">
+                        <ul class="gnav">
+                            <li><a class="hover-border-now" href="about.html">ABOUT</a></li>
+                            <li><a class="hover-border" href="work.html">WORK</a></li>
+                            <li class="header-logo">
+                                <a class="logo" href="index.html"><img src="img/logo.png" alt="ロゴ画像"></a>
+                            </li>            
+                            <li><a class="hover-border" href="skill.html">SKILL</a></li>
+                            <li><a class="hover-border" href="contact.html">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </nav>
+        <!---ハンバーガー-->
+            <div class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="top">
+                <img src="img/low-header.png" alt="top">
+            </div>
+            <div class="about">
+                <h1>ABOUT</h1>
+                <h2>– Profile</h2>
+                <p>Hi, I was born in 2000 / I am a university student in Kansai.<br class="br">
+                    Currently, I am also active as a web designer / developer.<br class="br">
+                    I love traveling abroad and there are still many countries I would like to visit! (I would like to live and work in various cities in the future!)<br>
+                    <br>
+                    初めまして、2000年生まれ/関西の大学生です。<br class="br">
+                    現在はWEBデザイナー/ディベロッパーとしても活躍しています。<br class="br">
+                    海外旅行が大好きで、まだまだ訪れたい国が沢山あります！（将来は色んな都市に住んで仕事をしたいと考えてます！）
+                </p>
+                <img class="me fadein phone-img" src="img/me.jpg" alt="me">
+                <h2>– Philosophy</h2>
+                <p>Jobs related to the WEB are indispensable in modern society,<br class="br">
+                    The WEB industry will continue to expand in the future.<br class="br">
+                    I am aiming for a society where the WEB industry can trust and cooperate with companies and individuals!<br class="br">
+                    My lifelong goal is to enjoy what is in front of me, work on it, think about it, carry it out, improve it, and grow every day.<br>
+                    <br>
+                    現代社会においてWEBに関わる仕事はなくてはならない存在であり、<br class="br">
+                    WEB業界は今後もますます拡大していくでしょう。<br class="br"> 
+                    私はWEB業外が、企業や個人と信頼し協力し合えるような社会を目指しております！<br class="br">
+                    目の前のことを楽しみながら取り組み、考え、実行し、改善しつつ日々成長していくことが私の一生涯の目標です。
+                </p>
+            </div>
+            <img class="me fadein pc-img" src="img/me.jpg" alt="me">
+            <footer>
+                <img  class="footer-top-img" src="img/footer-top-img.png" alt="footer-img">
+                <div class="footer-low">
+                    <div class="footer-first-low">
+                        <img src="img/footer-logo.png" alt="logo">
+                        <a class="far-a" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
+                    </div>
+                    <div class="footer-second-low">
+                        <p>お仕事依頼、ご質問等あれば下記からお気軽にお問い合わせください。</p>
+                        <a href="contact.html"><i class="far fa-envelope"></i>CONTACT US</a>
+                    </div>
+                    <div class="footer-third-low">
+                        <p>&copy sakioata|2021</p>
+                        <div class="sns">
+                            <a href="https://twitter.com/webdesign_saki"><i class="fab fa-twitter-square"></i></a>
+                            <a href="https://github.com/sakiogata"><i class="fab fa-github-square"></i></a>
+                            <a href="https://www.instagram.com/webdesign.saki/"><i class="fab fa-instagram-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <script>
+                $(function(){
+                    $('.toggle').click(function(){
+                        $(this).toggleClass('active');
+                        if ($(this).hasClass('active')) {
+                            $('.gnav').addClass('active');
+                        } else {
+                            $('.gnav').removeClass('active');
+                        }
+                    });
+                });
+                $(function(){
+                    $(window).scroll(function (){
+                        $('.fadein').each(function(){
+                            var elemPos = $(this).offset().top;
+                            var scroll = $(window).scrollTop();
+                            var windowHeight = $(window).height();
+                            if (scroll > elemPos - windowHeight + 200){
+                                $(this).addClass('scrollin');
+                            }
+                        });
+                    });
+                });
+                $(function(){
+                    $('a[href^="#"]').click(function(){
+                        let speed = 500;
+                        let href= $(this).attr("href");
+                        let target = $(href == "#" || href == "" ? 'html' : href);
+                        let position = target.offset().top;
+                        $("html, body").animate({scrollTop:position}, speed, "swing");
+                        return false;
+                    });
+                });
+    
+                </script>
+        </body>
+    </html>
